@@ -1,0 +1,27 @@
+{
+  "name": "wsinit",
+  "version": "1.0.0",
+  "description": "Initialize workspace by cloning all repos from organization or user",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioanniswd/wsinit.git"
+  },
+  "author": "ioannisp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ioanniswd/wsinit/issues"
+  },
+  "homepage": "https://github.com/ioanniswd/wsinit#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  }
+}
