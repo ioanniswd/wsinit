@@ -3,7 +3,8 @@
 const exec = require('child_process').exec;
 const minimist = require('minimist');
 
-const getAllReposNames = require('../getAllReposNames');
+const getAllReposNames = require('./getAllReposNames');
+const cloneRepo = require('./cloneRepo');
 
 var args = minimist(process.argv.slice(2), {
   boolean: ['org', 'v', 'version']
@@ -22,11 +23,20 @@ if (args.v || args.version) {
 
 } else {
   getAllReposNames(args.name, args.org, function(err, repos) {
-    if(err) {
+    if (err) {
       throw err;
 
     } else {
-      console.log('repos: ', repos);
+      // console.log('repos: ', repos);
+      let promises = repos.map(cloneRepo);
+
+      Promise.all(promises)
+        .then(results => {
+          console.log('Done');
+        })
+        .catch(err => {
+          throw err;
+        });
     }
   });
 }
