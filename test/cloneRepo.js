@@ -53,7 +53,11 @@ describe('Clone Repo Module', function() {
     });
 
     it('returns correct local path', function() {
+<<<<<<< HEAD
       expect(local_path).to.equal(`${home}/repos/${repo_2.name}`);
+=======
+      expect(local_path).to.equal(`${home}/${repo_2.name}`);
+>>>>>>> 3af2d6664a62db645324a5149baa1a0f6ad93a37
     });
 
   });

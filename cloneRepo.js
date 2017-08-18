@@ -13,7 +13,11 @@ module.exports = function(repo) {
     path += `${repo.local_path}/${repo.name}`;
 
   } else {
+<<<<<<< HEAD
     path += `repos/${repo.name}`;
+=======
+    path += repo.name;
+>>>>>>> 3af2d6664a62db645324a5149baa1a0f6ad93a37
   }
 
   return new Promise(function(resolve, reject) {
