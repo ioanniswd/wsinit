@@ -28,6 +28,8 @@ if (args.v || args.version) {
 
     } else {
       // console.log('repos: ', repos);
+
+      // clone all repos
       let promises = repos.map(cloneRepo);
 
       Promise.all(promises)
