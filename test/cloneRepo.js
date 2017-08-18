@@ -29,7 +29,7 @@ describe('Clone Repo Module', function() {
     });
 
     it('returns correct local path', function() {
-      expect(local_path).to.equal(`${home}/test/path/${repo_1.name}`);
+      expect(local_path).to.equal(`test/path/${repo_1.name}`);
     });
   });
 

@@ -29,7 +29,7 @@ describe('Get All Repos Names Module', function() {
     it('returns repo names and clone urls', function() {
       repos.forEach(function(item) {
         expect(item).to.have.property('name');
-        expect(item).to.have.property('clone_url');
+        expect(item).to.have.property('full_name');
         expect(item).to.have.property('local_path');
       });
     });

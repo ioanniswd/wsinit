@@ -1,7 +1,9 @@
 "use strict";
 
 const request = require('request');
-const user_agent_header = require('./cred').user_agent_header;
+
+const user = require('./cred').user;
+const at = require('./cred').at;
 
 module.exports = function(name, org, done) {
 
@@ -14,17 +16,20 @@ module.exports = function(name, org, done) {
     url += `users/`;
   }
 
-  url += `${name}/repos`;
+  url += `${name}/repos?access_token=${at}`;
+
+  console.log('url:', url);
 
   request({
     url: url,
     headers: {
-      'User-Agent': user_agent_header
+      'User-Agent': user
     }
   }, function(err, res, body) {
     if(err) {
       done(err);
     } else {
+      // console.log(body);
       body = JSON.parse(body);
       // console.log(body[0]);
       // console.log('body[0]:', Object.keys(body[0]));
@@ -34,7 +39,7 @@ module.exports = function(name, org, done) {
       body.forEach(function(repo) {
         repos.push({
           name: repo.name,
-          clone_url: repo.clone_url,
+          full_name: repo.full_name,
           local_path: repo.description,
         });
       });
