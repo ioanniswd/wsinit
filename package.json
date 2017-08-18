@@ -12,6 +12,10 @@
   },
   "author": "ioannisp",
   "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "wsinit": "index.js"
+  },
   "bugs": {
     "url": "https://github.com/ioanniswd/wsinit/issues"
   },
