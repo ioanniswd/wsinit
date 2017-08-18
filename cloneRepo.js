@@ -5,7 +5,7 @@ const home = require('os').homedir();
 
 const isPathValid = require('./isPathValid');
 
-const at = require('./cred').at;
+const at = require(`${home}/.cred`).at;
 
 module.exports = function(repo) {
 

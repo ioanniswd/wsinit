@@ -1,9 +1,10 @@
 "use strict";
 
 const request = require('request');
+const home = require('os').homedir();
 
-const user = require('./cred').user;
-const at = require('./cred').at;
+const user = require(`${home}/.cred`).user;
+const at = require(`${home}/.cred`).at;
 
 module.exports = function(name, org, done) {
 

@@ -4,8 +4,8 @@ const expect = require('chai').expect;
 const cloneRepo = require('../cloneRepo');
 const home = require('os').homedir();
 
-var repo_1 = require('../cred').test_repo_1;
-var repo_2 = require('../cred').test_repo_2;
+var repo_1 = require(`${home}/.cred`).test_repo_1;
+var repo_2 = require(`${home}/.cred`).test_repo_2;
 
 describe('Clone Repo Module', function() {
 
