@@ -1,12 +1,8 @@
 "use strict";
 
 const request = require('request');
-const home = require('os').homedir();
 
-const user = require(`${home}/.cred`).user;
-const at = require(`${home}/.cred`).at;
-
-module.exports = function(name, org, done) {
+module.exports = function(name, org, user, at, done) {
 
   var url = "https://api.github.com/";
 
@@ -19,7 +15,7 @@ module.exports = function(name, org, done) {
 
   url += `${name}/repos?access_token=${at}`;
 
-  console.log('url:', url);
+  // console.log('url:', url);
 
   request({
     url: url,
