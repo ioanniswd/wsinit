@@ -7,17 +7,21 @@ const isPathValid = require('./isPathValid');
 
 module.exports = function(repo, at) {
 
-  var path;
+  var path = '';
+  var url = 'https://';
 
   if(isPathValid(repo.local_path)) {
     path = `${repo.local_path}/${repo.name}`;
-
-  } else {
-    path = `${home}/repos/${repo.name}`;
   }
 
+  if(at) {
+    url += `${at}@`;
+  }
+
+  url += `github.com/${repo.full_name}.git`;
+
   return new Promise(function(resolve, reject) {
-    exec(`git clone -o upstream "https://${at}@github.com/${repo.full_name}.git" ${path}`, function(err, stdout, stderr) {
+    exec(`git clone -o upstream "${url}" ${path}`, function(err, stdout, stderr) {
       if(err) {
         reject(err);
 

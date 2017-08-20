@@ -13,7 +13,11 @@ module.exports = function(name, org, user, at, done) {
     url += `users/`;
   }
 
-  url += `${name}/repos?access_token=${at}`;
+  url += `${name}/repos`;
+
+  if(at) {
+    url += `?access_token=${at}`;
+  }
 
   // console.log('url:', url);
 

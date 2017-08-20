@@ -3,26 +3,31 @@
 #### Clones all repositories, public or private, of a specified user or organization.
 #### Credentials are needed, they are present in a file named .wsinit.json place in the home folder.
 
+### Installation:
+```
+~$ sudo npm install -g wsinit
+```
+
 ### Usage:
 
 #### For user:
 ```
-~$ wsinit <github username>
+~$ wsinit --name <github username>
 ```
 
 #### For organization:
 ```
-~$ wsinit --org <github organization>
+~$ wsinit --org --name <github organization>
 ```
 ##### The description is used to determine the exact path to which the repository will be cloned.
-##### If the description is empty, or if it contains spaces, the default path is used, `~/repos`.
+##### If the description is empty, or if it contains spaces, the default path is used, `./<repository name>`.
 
 ### Examples:
 Repository description: `path/to/folder` -> Will clone the repository in `./path/to/folder/<repository name>`
 
-Repository description: `Some description` -> Will clone the repository in `~/repos/<repository name>`
+Repository description: `Some description` -> Will clone the repository in `./<repository name>`
 
-Empty repository description -> Will clone the repository in `~/repos/<repository name>`
+Empty repository description -> Will clone the repository in `./<repository name>`
 
 
 ### Authentication:
@@ -58,4 +63,11 @@ Empty repository description -> Will clone the repository in `~/repos/<repositor
   }
 }
 ```
-##### Note: The tests clone the repositories in the test folder(`wsinit/test`) for repositories with correct path in the description, and in the `~/repos` folder for wrong paths. <u>Tests do not delete anything</u>.
+##### You can place the file yourself or you could run `~$ wsinit --cred` which will prompt for user name and Github API access token.
+```
+~$ wsinit --cred
+```
+##### If you try to use the script without the `.wsinit.json` file present in the home folder, you will be prompted to initialize it, and execution will continue after the file is created.
+##### *Note*: You could omit the access token. The script will still work but *only* for public repositories.
+
+##### *Note*: The tests clone the repositories in the test folder(`wsinit/test`). <u>Tests do not delete anything</u>.
