@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ioanniswd/wsinit#readme",
   "dependencies": {
     "minimist": "^1.2.0",
+    "prompt": "^1.0.0",
     "request": "^2.81.0"
   },
   "devDependencies": {
